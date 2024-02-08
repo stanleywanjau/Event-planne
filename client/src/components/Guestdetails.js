@@ -74,3 +74,6 @@ const GuestDetails = () => {
       </div>
     </div>
   );
+};
+
+export default GuestDetails;
