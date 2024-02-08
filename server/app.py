@@ -139,12 +139,15 @@ class EventsById(Resource):
             db.session.delete(guest)
 
             # Delete the event
-            db.session.delete(event)
+            
+        db.session.delete(event)
+            
 
             # Commit the changes to the database
-            db.session.commit()
+        db.session.commit()
 
-            return {"message": "Event and associated guests deleted successfully"}, 200
+
+        return {"message": "Event and associated guests deleted successfully"}, 200
     def patch(self,id):
             event=Event.query.filter_by(id=id).first()
             if not event:
@@ -175,6 +178,12 @@ class Guests(Resource):
         guests =[ {"id":guest.id,"name":guest.name,"email":guest.email,"status":guest.status}for guest in Guest.query.all()]
         return make_response(jsonify(guests),200)
     def post(self):
+        """
+        The above function handles a POST request to create a new guest with the provided name, email,
+        and status (defaulting to 'invited' if not provided).
+        :return: The code is returning a JSON response with a message and the ID of the created guest.
+        The status code of the response is 201, indicating that the guest was created successfully.
+        """
         data = request.json
         name = data.get('name')
         email = data.get('email')
