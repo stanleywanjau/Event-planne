@@ -11,3 +11,4 @@ const GuestForm = () => {
           alert('Name and email are required fields');
           return;
         }
+        
