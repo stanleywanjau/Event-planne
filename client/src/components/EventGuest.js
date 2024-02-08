@@ -21,3 +21,15 @@ const EventGuest = () => {
       .catch(error => {
         console.error('Error associating guest with event:', error);
       });
+    };
+
+    return (
+      <div>
+        <h2>EventGuest Component</h2>
+        <button onClick={associateGuestWithEvent}>Associate Guest with Event</button>
+      </div>
+    );
+  };
+  
+  export default EventGuest;
+  
