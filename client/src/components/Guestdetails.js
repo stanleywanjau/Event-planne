@@ -21,3 +21,25 @@ const GuestDetails = () => {
         console.error('Error fetching guest details:', error);
       });
   }, [id]);
+
+  const handleStatusUpdate = () => {
+    if (window.confirm(`Are you sure you want to change the status to 'confirmed'?`)) {
+      fetch(`/guest/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ status: 'confirmed' })
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to update guest status');
+          }
+          // Update the guest status in the state
+          setGuest({ ...guest, status: 'confirmed' });
+        })
+        .catch(error => {
+          console.error('Error updating guest status:', error);
+        });
+    }
+  };
