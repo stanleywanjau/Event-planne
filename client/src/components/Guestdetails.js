@@ -43,3 +43,34 @@ const GuestDetails = () => {
         });
     }
   };
+
+  if (!guest) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="guest-details-container">
+      <h2>Guest Details</h2>
+      <div className="guest-info">
+        <p><strong>ID:</strong> {guest.id}</p>
+        <p><strong>Name:</strong> {guest.name}</p>
+        <p><strong>Status:</strong> {guest.status}</p>
+        <button onClick={handleStatusUpdate}>Confirm Invite</button>
+      </div>
+      <div className="guest-events">
+        <h3>Events</h3>
+        <ul className="event-list">
+          {guest.events?.length > 0 ? (
+            guest.events.map((event) => (
+              <li key={event.id} className="event-item">
+                <span><strong>Title:</strong> {event.title}</span>
+                <span><strong>Location:</strong> {event.location}</span>
+              </li>
+            ))
+          ) : (
+            <li>{guest.message}</li>
+          )}
+        </ul>
+      </div>
+    </div>
+  );
