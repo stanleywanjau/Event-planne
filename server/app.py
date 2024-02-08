@@ -1,20 +1,11 @@
-from flask import Flask, jsonify, request, make_response,session
-from flask_migrate import Migrate
-from flask_bcrypt import Bcrypt
-from flask_restful import Api, Resource
+from flask import  jsonify, request, make_response,session
+from flask_restful import  Resource
 from datetime import datetime
 
-from models import db,User,Event,Guest
+from models import User,Event,Guest
+from config import db,api,app
 
-app = Flask(__name__)
-app.secret_key=b'\xae\xf15\xb5\xfa\x8b\xafz%%\x19\xe8\xb4\xc5\x06\x8f'
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///Eventplanner.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
-migrate=Migrate(app,db)
-db.init_app(app)
-bcrypt=Bcrypt(app)
-api = Api(app)
 
 
 class ClearSession(Resource):
@@ -54,7 +45,7 @@ class CheckSession(Resource):
         return {}, 404
         
 class Login(Resource):
-   def post(self):
+    def post(self):
         username = request.get_json()['username']
         password = request.get_json()['password']
 
@@ -93,7 +84,7 @@ class Events(Resource):
         # Parse date and time strings into datetime objects
         try:
             date = datetime.strptime(date, '%Y-%m-%d').date()
-            time = datetime.strptime(time, '%H:%M:%S').time()
+            time = datetime.strptime(time, '%H:%M').time()
         except ValueError:
             return {"message": "Invalid date or time format"}, 400
 

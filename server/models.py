@@ -3,8 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.ext.hybrid import hybrid_property
-from app import db, bcrypt
-db = SQLAlchemy()
+from config import db, bcrypt
+
 
 
 guest_event_association = db.Table('guest_event_association',
