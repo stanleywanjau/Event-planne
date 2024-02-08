@@ -84,7 +84,7 @@ class Events(Resource):
         # Parse date and time strings into datetime objects
         try:
             date = datetime.strptime(date, '%Y-%m-%d').date()
-            time = datetime.strptime(time, '%H:%M:%S').time()
+            time = datetime.strptime(time, '%H:%M').time()
         except ValueError:
             return {"message": "Invalid date or time format"}, 400
 
