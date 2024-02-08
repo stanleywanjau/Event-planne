@@ -20,3 +20,21 @@ const GuestList = () => {
         console.error('Error fetching guests:', error);
       });
   }, []);
+
+const handleGuestClick = (guestname,guestId) => {
+    navigate(`/guest/${guestname}/${guestId}`);
+  };
+
+  const create_guest = () => {
+    navigate(`/createguest`);
+  };
+
+  const handleDeleteGuest = (guestId) => {
+    if (window.confirm('Are you sure you want to delete this guest?')) {
+      fetch(`/guest/${guestId}`, {
+        method: 'DELETE',
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to delete guest');
+          }
