@@ -132,3 +132,33 @@ code {
   margin-top: 5px;
 }
 
+/* guestdetails */
+
+.guest-details-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.guest-info {
+  margin-bottom: 20px;
+}
+
+.guest-events {
+  margin-top: 20px;
+}
+
+.event-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.event-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
