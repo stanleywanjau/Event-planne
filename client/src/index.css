@@ -100,3 +100,35 @@ code {
 .event-form button:hover {
   background-color: #0056b3;
 }
+
+/* guestlist */
+.guest-list-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.guest-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.guest-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.guest-name {
+  font-weight: bold;
+}
+
+.guest-email,
+.guest-status {
+  display: block;
+  margin-top: 5px;
+}
+
