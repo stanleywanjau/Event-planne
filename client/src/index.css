@@ -29,3 +29,36 @@ code {
   background-color: #fff;
   cursor: pointer;
 }
+
+.event-item:hover {
+  background-color: #f0f0f0;
+}
+
+.delete-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+
+/* eventdetails */
+
+.event-details-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.event-details {
+  margin-bottom: 20px;
+}
