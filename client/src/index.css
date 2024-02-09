@@ -234,3 +234,7 @@ code {
   border-radius: 4px;
   cursor: pointer;
 }
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
